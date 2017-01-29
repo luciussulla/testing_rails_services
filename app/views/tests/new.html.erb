@@ -1,0 +1,17 @@
+<h1> Create a new Test </h1>
+
+    <%= form_tag({controller: 'tests', action: 'generate_action' }, method: :post) do %>
+        
+        <%= label_tag 'what categories do you want 0-tenses, 1-passives' %> <br/>
+        
+        <%= check_box_tag :tenses %> <br/>
+        <%= label_tag :tenses, "tenses" %> <br>
+        
+        <%= check_box_tag :passives %> <br/>
+        <%= label_tag :passives, "passives" %> <br/>
+        
+        <%= label_tag 'how many exercises do you want, up to 4' %> <br/>
+        <%= number_field_tag :limit, nil, within: 1..4 %> 
+        <%= submit_tag %> 
+    
+    <% end %>

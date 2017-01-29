@@ -1,0 +1,16 @@
+<h1> Create a New Question </h1>
+    
+    <%= form_tag({controller: 'questions', action: 'create'}, method: :post) do %> 
+    
+        <%= label_tag :question_text, "Inset Question" %>
+        <%= text_field_tag :question_text %> 
+         
+        <%= label_tag :category, "Insert Category" %> 
+        <%= text_field_tag :category %> 
+        
+        <%= label_tag :answer, "Provice Answer" %>
+        <%= text_field_tag :answer %> 
+        
+        <%= submit_tag "Submit" %> 
+    
+    <% end %> 
