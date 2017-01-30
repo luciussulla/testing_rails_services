@@ -1,1 +1,13 @@
+<h1> This is the test! Put in the answers! </h1>
+
+<%= form_tag({controller: "tests", action: "check_result"}, method: :post) do %> 
+    
+    <% @generated_test.each do |question| %> 
+        <%= question.answer %><br/>      
+        <%= label_tag question, question.question_text %> <br/>
+        <%= text_field_tag(question.id.to_s + "_answer") %><br/>
+    <% end %> 
+    
+    <%= submit_tag %> 
+<% end %> 
 

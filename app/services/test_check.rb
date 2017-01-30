@@ -1,17 +1,22 @@
 class TestCheck
-
+    attr_reader :user_answers
+    
     def initialize(user_answers={})
         @user_answers = user_answers
     end 
     
     def check
-        score = 0
-        correct_answers =[]
-        @user_answers.each do |k,v|
-            correct_answer = Question.where(id: k.to_i).first.answer
-            score += 1 if correct_answer == v 
-            correct_answers << correct_answer
-        end       
+        score = 0 
+        
+        user_answers.each do |k,v| 
+            question_id = k.first.to_i
+            correct_answer = Question.find(question_id).answer
+            user_answer = v
+            score += 1 if correct_answer == user_answer 
+        end 
         score
-    end 
+    end
+    
+    
+   
 end 
